@@ -9,4 +9,5 @@ This project assignment has been prepared for the 'Kodluyoruz' React Redux cours
 ![preview](prev1.png)
 
 ---
+
 ![preview](prev2.png)
