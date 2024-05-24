@@ -2,7 +2,7 @@
 
 This project assignment has been prepared for the 'Kodluyoruz' React Redux course. It is a simple memory game
 
-**DEMO:** 
+**DEMO:** https://sk-react-redux-memory-game.netlify.app/
 
 ---
 
