@@ -6,7 +6,7 @@ function Card({id,item,handleClick}) {
 
 
   return (
-    <div onClick={()=> handleClick(id)} className={"card" + itemClass}>
+    <div onClick={()=> !item.stat ?  handleClick(id) : ""} className={"card" + itemClass}>
       <img src={item.img} alt=''/>
     </div>
   )

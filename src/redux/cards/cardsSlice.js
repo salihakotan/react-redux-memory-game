@@ -27,22 +27,42 @@ const cards = [
 export const cardsSlice = createSlice({
     name:"cards",
     initialState: {
-        items:cards
+        items:cards,
+        score:0,
+        leftCards: cards.length
     },
     reducers: {
         updateStat: (state,action) => {
             console.log("id: ", action.payload.id)
             console.log("stat: ", action.payload.stat)
             state.items[action.payload.id].stat =action.payload.stat
-           
+            if(action.payload.stat === "correct") {
+                state.leftCards -=1
+            }
+            
 
+        },
+        updateScore: (state,action) => {
+            state.score += action.payload
+        },
+        resetGame: (state,action) => {
+            state.items.forEach((item) => {
+                item.stat = ""
+            })
+            state.score = 0
+            state.leftCards = cards.length
+            state.items.sort(() => Math.random() - 0.5)
+            console.log("reset game")
         }
     }
 })
 
+export const selectScore = (state) => state.cards.score
 
 export const selectCards = (state) => state.cards.items
+export const selectLeftCards = (state) => state.cards.leftCards
 
-export const {updateStat} = cardsSlice.actions
+
+export const {updateStat,updateScore,resetGame} = cardsSlice.actions
 
 export default cardsSlice.reducer
